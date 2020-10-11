@@ -10,4 +10,6 @@ public interface LinkedListInterface {
 	public void insertAtMiddle(Node node);
 
 	public void insertBetween(Node preNode, Node postNode, Node node);
+
+	public void pop();
 }
