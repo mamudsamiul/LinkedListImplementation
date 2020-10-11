@@ -14,18 +14,129 @@ import static org.junit.Assert.*;
 
 public class TestCase {
 	@Test
-	public void addingThreeNumberShouldPass() {
+	public void given3NumbersShouldPass() {
 		Node<Integer> firstNode = new Node<>(56);
 		Node<Integer> secondNode = new Node<>(30);
 		Node<Integer> thirdNode = new Node<>(70);
+		firstNode.setNext(secondNode);
+		secondNode.setNext(thirdNode);
+		boolean result = firstNode.getNext().equals(secondNode) && secondNode.getNext().equals(thirdNode);
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void given3NumbersWhenAddedToLinkedListShouldBeAddedToTop() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.addNode(firstNode);
+		linkedList.addNode(secondNode);
+		linkedList.addNode(thirdNode);
+		linkedList.print();
+		boolean result = linkedList.getHead().equals(thirdNode) && linkedList.getHead().getNext().equals(secondNode)
+				&& linkedList.getTail().equals(firstNode);
+		assertTrue(result);
+	}
+
+	@Test
+	public void given3NumbersWhenAddedToLinkedListShouldBeAddedToLast() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.addNode(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.print();
+		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
+				&& linkedList.getTail().equals(thirdNode);
+		assertTrue(result);
+	}
+
+	@Test
+	public void given3NumbersTestingInsertFunction() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
 		LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.addNode(firstNode);
 		linkedList.append(thirdNode);
 		linkedList.insertAtMiddle(secondNode);
+		linkedList.print();
+		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
+				&& linkedList.getTail().equals(thirdNode);
+		assertTrue(result);
+	}
+
+	@Test
+	public void givenNumbersTestingDeleteFromHeadFunction() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
+		Node<Integer> fourthNode = new Node<>(60);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.addNode(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.append(fourthNode);
+		linkedList.pop();
+		linkedList.print();
+		boolean result = linkedList.getHead().equals(secondNode) && linkedList.getHead().getNext().equals(thirdNode)
+				&& linkedList.getTail().equals(fourthNode);
+		assertTrue(result);
+	}
+
+	@Test
+	public void givenNumbersTestingDeleteFromLastFunction() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
+		Node<Integer> fourthNode = new Node<>(60);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.addNode(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.append(fourthNode);
 		linkedList.popLast();
 		linkedList.print();
-		System.out.println(linkedList.findNode(30).getKey());
-		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getTail().equals(secondNode);
-		Assert.assertTrue(result);
+		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
+				&& linkedList.getTail().equals(thirdNode);
+		assertTrue(result);
+	}
+
+	@Test
+	public void givenNumbersTestingSearchFunction() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
+		Node<Integer> fourthNode = new Node<>(60);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.addNode(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.append(fourthNode);
+		linkedList.print();
+		Assert.assertEquals(secondNode, linkedList.findNode(30));
+	}
+
+	@Test
+	public void givenNumbersTestingInsertFunction() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
+		Node<Integer> fourthNode = new Node<>(40);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.addNode(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		Node tempNode = linkedList.findNode(30);
+		linkedList.insertBetween(secondNode, thirdNode, fourthNode);
+		System.out.println("f");
+		linkedList.print();
+		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
+				&& linkedList.getHead().getNext().getNext().equals(fourthNode)
+				&& linkedList.getTail().equals(thirdNode);
+		assertTrue(result);
 	}
 }
