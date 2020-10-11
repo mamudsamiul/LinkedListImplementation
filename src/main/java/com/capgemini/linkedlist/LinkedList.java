@@ -79,4 +79,14 @@ public class LinkedList<K> implements LinkedListInterface {
 	public void pop() {
 		this.head = head.getNext();
 	}
+
+	@Override
+	public void popLast() {
+		Node tempNode = this.head;
+		while (tempNode.getNext() != this.tail) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		tail.setNext(null);
+	}
 }

@@ -22,9 +22,9 @@ public class TestCase {
 		linkedList.addNode(firstNode);
 		linkedList.append(thirdNode);
 		linkedList.insertAtMiddle(secondNode);
-		linkedList.pop();
+		linkedList.popLast();
 		linkedList.print();
-		boolean result = linkedList.getHead().equals(secondNode) && linkedList.getTail().equals(thirdNode);
+		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getTail().equals(secondNode);
 		Assert.assertTrue(result);
 	}
 }

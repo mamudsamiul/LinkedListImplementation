@@ -12,4 +12,6 @@ public interface LinkedListInterface {
 	public void insertBetween(Node preNode, Node postNode, Node node);
 
 	public void pop();
+
+	public void popLast();
 }
