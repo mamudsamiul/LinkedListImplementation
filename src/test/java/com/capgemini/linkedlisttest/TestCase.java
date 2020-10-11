@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 public class TestCase {
 	@Test
-	public void given3NumbersShouldPass() {
+	public void givenNumbersShouldPass() {
 		Node<Integer> firstNode = new Node<>(56);
 		Node<Integer> secondNode = new Node<>(30);
 		Node<Integer> thirdNode = new Node<>(70);
@@ -25,7 +25,7 @@ public class TestCase {
 	}
 
 	@Test
-	public void given3NumbersWhenAddedToLinkedListShouldBeAddedToTop() {
+	public void givenNumbersWhenAddedToLinkedListShouldBeAddedToTop() {
 		Node<Integer> firstNode = new Node<>(70);
 		Node<Integer> secondNode = new Node<>(30);
 		Node<Integer> thirdNode = new Node<>(56);
@@ -40,7 +40,7 @@ public class TestCase {
 	}
 
 	@Test
-	public void given3NumbersWhenAddedToLinkedListShouldBeAddedToLast() {
+	public void givenNumbersWhenAddedToLinkedListShouldBeAddedToLast() {
 		Node<Integer> firstNode = new Node<>(70);
 		Node<Integer> secondNode = new Node<>(30);
 		Node<Integer> thirdNode = new Node<>(56);
@@ -55,7 +55,7 @@ public class TestCase {
 	}
 
 	@Test
-	public void given3NumbersTestingInsertFunction() {
+	public void givenNumbersTestingInsertAtMiddleFunction() {
 		Node<Integer> firstNode = new Node<>(70);
 		Node<Integer> secondNode = new Node<>(30);
 		Node<Integer> thirdNode = new Node<>(56);
@@ -132,7 +132,28 @@ public class TestCase {
 		linkedList.append(thirdNode);
 		Node tempNode = linkedList.findNode(30);
 		linkedList.insertBetween(secondNode, thirdNode, fourthNode);
-		System.out.println("f");
+		linkedList.print();
+		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
+				&& linkedList.getHead().getNext().getNext().equals(fourthNode)
+				&& linkedList.getTail().equals(thirdNode);
+		assertTrue(result);
+	}
+
+	@Test
+	public void givenNumbersTestingDeleteBetweenFunction() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
+		Node<Integer> fourthNode = new Node<>(40);
+		Node<Integer> fifthNode = new Node<>(50);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.addNode(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(fifthNode);
+		linkedList.append(fourthNode);
+		linkedList.append(thirdNode);
+		linkedList.deleteNode(50);
+		System.out.println("Size of the linked list = " + linkedList.size());
 		linkedList.print();
 		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
 				&& linkedList.getHead().getNext().getNext().equals(fourthNode)
