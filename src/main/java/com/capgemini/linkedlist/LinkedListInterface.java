@@ -1,6 +1,6 @@
 package com.capgemini.linkedlist;
 
-public interface LinkedListInterface {
+public interface LinkedListInterface<K> {
 	public void addNode(Node node);
 
 	public void print();
@@ -14,4 +14,6 @@ public interface LinkedListInterface {
 	public void pop();
 
 	public void popLast();
+
+	public Node findNode(K data);
 }

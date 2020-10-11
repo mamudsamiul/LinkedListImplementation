@@ -24,6 +24,7 @@ public class TestCase {
 		linkedList.insertAtMiddle(secondNode);
 		linkedList.popLast();
 		linkedList.print();
+		System.out.println(linkedList.findNode(30).getKey());
 		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getTail().equals(secondNode);
 		Assert.assertTrue(result);
 	}
