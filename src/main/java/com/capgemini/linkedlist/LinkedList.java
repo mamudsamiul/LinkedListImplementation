@@ -3,7 +3,7 @@ package com.capgemini.linkedlist;
 public class LinkedList<K> implements LinkedListInterface {
 	private Node<K> head;
 	private Node<K> tail;
-
+	private int counter;
 	public LinkedList() {
 		this.head = null;
 		this.tail = null;
@@ -28,6 +28,7 @@ public class LinkedList<K> implements LinkedListInterface {
 			this.head = node;
 			this.head.setNext(tempNode);
 		}
+		counter++;
 	}
 
 	@Override
@@ -52,6 +53,24 @@ public class LinkedList<K> implements LinkedListInterface {
 			this.tail.setNext(node);
 			this.tail = node;
 		}
+		counter++;
+	}
 
+	@Override
+	public void insertAtMiddle(Node node) {
+		Node tempHead=this.head;
+		Node tempNode;
+		for(int i=1;i<counter/2;i++) {
+			tempHead=tempHead.getNext();
+		}
+		tempNode=tempHead.getNext();
+		tempHead.setNext(node);
+		node.setNext(tempNode);		
+	}
+
+	@Override
+	public void insertBetween(Node preNode, Node postNode,Node node) {
+		preNode.setNext(node);
+		node.setNext(postNode);
 	}
 }

@@ -6,4 +6,8 @@ public interface LinkedListInterface {
 	public void print();
 
 	public void append(Node node);
+
+	public void insertAtMiddle(Node node);
+
+	public void insertBetween(Node preNode, Node postNode, Node node);
 }
