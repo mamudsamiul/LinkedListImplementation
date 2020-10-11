@@ -16,4 +16,8 @@ public interface LinkedListInterface<K> {
 	public void popLast();
 
 	public Node findNode(K data);
+
+	public void deleteNode(K data);
+
+	public int size();
 }

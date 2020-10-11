@@ -101,4 +101,29 @@ public class LinkedList<K> implements LinkedListInterface<K> {
 		return tempNode;
 	}
 
+	@Override
+	public void deleteNode(K data) {
+		Node searchNode = this.head;
+		Node tempNode;
+		while (searchNode.getNext().getKey() != data && searchNode.getNext() != null) {
+			searchNode = searchNode.getNext();
+		}
+		tempNode = searchNode.getNext().getNext();
+		searchNode.setNext(tempNode);
+	}
+
+	@Override
+	public int size() {
+		int counter = 1;
+		Node tempNode = this.head;
+		while (tempNode.getNext() != null) {
+			counter++;
+			tempNode = tempNode.getNext();
+		}
+		if (head == null)
+			return 0;
+		else
+			return counter;
+	}
+
 }
