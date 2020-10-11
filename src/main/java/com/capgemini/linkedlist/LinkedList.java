@@ -1,6 +1,6 @@
 package com.capgemini.linkedlist;
 
-public class LinkedList<K> implements LinkedListInterface {
+public class LinkedList<K> implements LinkedListInterface<K> {
 	private Node<K> head;
 	private Node<K> tail;
 	private int counter;
@@ -89,4 +89,16 @@ public class LinkedList<K> implements LinkedListInterface {
 		this.tail = tempNode;
 		tail.setNext(null);
 	}
+
+	@Override
+	public Node findNode(K data) {
+		Node tempNode = this.head;
+		while (tempNode.getKey() != data) {
+			tempNode = tempNode.getNext();
+			if (tempNode == null)
+				return null;
+		}
+		return tempNode;
+	}
+
 }
