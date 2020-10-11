@@ -41,4 +41,17 @@ public class LinkedList<K> implements LinkedListInterface {
 		}
 		System.out.println(temp.getKey());
 	}
+
+	@Override
+	public void append(Node node) {
+		if (this.tail == null)
+			this.tail = node;
+		if (this.head == null)
+			this.head = node;
+		else {
+			this.tail.setNext(node);
+			this.tail = node;
+		}
+
+	}
 }
