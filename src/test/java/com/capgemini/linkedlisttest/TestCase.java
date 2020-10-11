@@ -20,8 +20,8 @@ public class TestCase {
 		Node<Integer> thirdNode = new Node<>(70);
 		LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.addNode(firstNode);
-		linkedList.append(secondNode);
 		linkedList.append(thirdNode);
+		linkedList.insertAtMiddle(secondNode);
 		linkedList.print();
 		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
 				&& linkedList.getTail().equals(thirdNode);
