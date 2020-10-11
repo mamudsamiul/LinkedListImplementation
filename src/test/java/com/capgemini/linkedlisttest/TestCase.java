@@ -15,16 +15,16 @@ import static org.junit.Assert.*;
 public class TestCase {
 	@Test
 	public void addingThreeNumberShouldPass() {
-		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> firstNode = new Node<>(56);
 		Node<Integer> secondNode = new Node<>(30);
-		Node<Integer> thirdNode = new Node<>(56);
+		Node<Integer> thirdNode = new Node<>(70);
 		LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.addNode(firstNode);
-		linkedList.addNode(secondNode);
-		linkedList.addNode(thirdNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
 		linkedList.print();
-		boolean result = linkedList.getHead().equals(thirdNode) && linkedList.getHead().getNext().equals(secondNode)
-				&& linkedList.getTail().equals(firstNode);
+		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
+				&& linkedList.getTail().equals(thirdNode);
 		Assert.assertTrue(result);
 	}
 }
